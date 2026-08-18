@@ -21,4 +21,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://www.kankanledwall.com/sitemap.xml
+Sitemap: https://kankandeka.github.io/sitemap.xml
