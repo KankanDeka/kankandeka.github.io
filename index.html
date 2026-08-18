@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ============================================================ -->
+<!-- EDIT ME: swap placeholder phone/URL/email before publishing  -->
+<!-- ============================================================ -->
+
 <title>Kankan LED Wall | LED Video Wall Rental in Assam — Weddings, Concerts, Corporate & Political Events</title>
 <meta name="description" content="Kankan LED Wall provides professional LED video wall rental across Assam — weddings, corporate events, concerts, stage shows, political rallies, and religious functions. Based in Mangaldoi, Darrang. High-brightness P3.6 LED cabinets, indoor & outdoor setups, custom sizing.">
 <meta name="keywords" content="LED wall rental Assam, LED screen rental Mangaldoi, LED video wall Guwahati, stage LED backdrop, event LED display Assam, wedding LED screen, corporate event LED wall, political rally LED screen, P3.6 LED cabinet rental">
@@ -16,7 +20,7 @@
 <meta property="og:description" content="High-brightness LED wall rental for weddings, concerts, corporate events, political rallies & religious functions across Assam.">
 <meta property="og:url" content="https://kankandeka.github.io/">
 <meta property="og:locale" content="en_IN">
-<meta property="og:image" content="https://kankandeka.github.io/images/kankan-led-wall-cover.jpg">
+<meta property="og:image" content="https://kankandeka.github.io/images/gallery/outdoor-daytime-screen-1.jpg">
 
 <!-- Robots / crawlability -->
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -35,7 +39,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Kankan LED Wall",
-  "image": "https://kankandeka.github.io/images/kankan-led-wall-cover.jpg",
+  "image": "https://kankandeka.github.io/images/gallery/outdoor-daytime-screen-1.jpg",
   "description": "Kankan LED Wall provides professional LED video wall rental across Assam for weddings, corporate events, concerts, stage shows, political rallies, and religious functions. Based in Mangaldoi, Darrang, we serve clients across Assam with high-brightness P3.6 LED cabinets, delivering crisp visuals even in outdoor daylight.",
   "address": {
     "@type": "PostalAddress",
@@ -54,7 +58,7 @@
     { "@type": "City", "name": "Mangaldoi" },
     { "@type": "City", "name": "Guwahati" },
     { "@type": "City", "name": "Tezpur" },
-    { "@type": "City", "name": "Tamulpur" },
+    { "@type": "City", "name": "Nagaon" },
     { "@type": "City", "name": "Udalguri" }
   ],
   "hasOfferCatalog": {
@@ -227,6 +231,41 @@
   .spec-label{font-family:var(--mono); font-size:0.72rem; color:var(--paper-dim); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px;}
   .spec-value{font-family:var(--display); font-weight:600; font-size:1.3rem; color:var(--paper);}
 
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:2px;
+    background:var(--panel-line); border:2px solid var(--panel-line);
+  }
+  .gallery-item{
+    position:relative; aspect-ratio:1/1; overflow:hidden; background:var(--panel);
+  }
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform .4s ease, filter .4s ease;
+    filter:saturate(1.02);
+  }
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-item figcaption{
+    position:absolute; left:0; right:0; bottom:0;
+    padding:14px 16px;
+    background:linear-gradient(to top, rgba(8,8,13,0.88), transparent);
+    font-family:var(--mono); font-size:0.74rem; color:var(--paper-dim);
+    opacity:0; transform:translateY(6px);
+    transition:opacity .25s, transform .25s;
+  }
+  .gallery-item:hover figcaption{opacity:1; transform:translateY(0);}
+  .gallery-item.wide{grid-column:span 2;}
+  /* Placeholder styling: remove .placeholder class once a real photo is in place */
+  .gallery-item.placeholder{
+    display:flex; align-items:center; justify-content:center; text-align:center; padding:20px;
+    background:
+      repeating-linear-gradient(45deg, rgba(245,243,238,0.03) 0 2px, transparent 2px 10px),
+      linear-gradient(135deg, rgba(41,242,199,0.06), rgba(255,61,138,0.05));
+  }
+  .gallery-item.placeholder span{
+    font-family:var(--mono); font-size:0.76rem; color:var(--paper-dim); line-height:1.5;
+  }
+
   /* ---------- Coverage ---------- */
   .coverage-list{display:flex; flex-wrap:wrap; gap:12px; margin-top:30px;}
   .coverage-list span{
@@ -289,6 +328,7 @@
       <ul>
         <li><a href="#services">Services</a></li>
         <li><a href="#specs">Equipment</a></li>
+        <li><a href="#gallery">Gallery</a></li>
         <li><a href="#coverage">Coverage</a></li>
         <li><a href="#reviews">Reviews</a></li>
       </ul>
@@ -371,6 +411,58 @@
     </div>
   </section>
 
+  <!-- ================= GALLERY ================= -->
+  <!--
+    GALLERY NOTES:
+    - 7 of your 12 uploaded photos are placed above, chosen for variety (outdoor daylight,
+      rallies, festivals, weddings, tent decor, community events).
+    - 5 more are already uploaded and ready to use in images/gallery/ if you want to expand
+      the gallery later: govt-scheme-event-1.jpg, health-camp-stage-1.jpg, audience-view-1.jpg,
+      small-venue-setup-1.jpg, control-booth-setup-1.jpg
+    - To add more tiles, copy a <figure class="gallery-item"> block, point the src at one of
+      the filenames above, and write specific alt text (what event, what setup).
+    - Add class="wide" to any <figure> to make it span two grid columns.
+  -->
+  <section id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-eyebrow">Recent Work</p>
+        <h2>Screens on-site, not just on paper</h2>
+        <p>A look at recent setups. Replace these placeholders with real event photos as you collect them.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item wide">
+          <img src="images/gallery/outdoor-daytime-screen-1.jpg" alt="Large outdoor LED screen setup visible in bright daylight, government event backdrop" loading="lazy">
+          <figcaption>Outdoor daylight setup &middot; Government event</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/outdoor-rally-screen-1.jpg" alt="LED wall screen at an outdoor public rally with large audience" loading="lazy">
+          <figcaption>Public rally &middot; Outdoor screen</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/bihu-festival-stage-1.jpg" alt="LED stage backdrop at a Bihu festival cultural celebration" loading="lazy">
+          <figcaption>Bihu festival &middot; Stage backdrop</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/womens-scheme-event-1.jpg" alt="LED display screen at a government women's welfare scheme event" loading="lazy">
+          <figcaption>Government scheme launch event</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/wedding-reception-tent-1.jpg" alt="Decorated wedding reception tent with LED screen backdrop" loading="lazy">
+          <figcaption>Wedding reception &middot; Stage screen</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/event-tent-decor-1.jpg" alt="Decorated event tent interior with LED display and festive lighting" loading="lazy">
+          <figcaption>Event tent setup &middot; Festive lighting</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="images/gallery/community-gathering-stage-1.jpg" alt="LED backdrop screen at a community gathering stage event" loading="lazy">
+          <figcaption>Community gathering &middot; Stage event</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= COVERAGE ================= -->
   <section id="coverage">
     <div class="wrap">
@@ -381,7 +473,7 @@
       </div>
       <div class="coverage-list">
         <span>Mangaldoi</span><span>Darrang</span><span>Guwahati</span><span>Tezpur</span>
-        <span>Tamulpur</span><span>Udalguri</span><span>Sonitpur</span><span>Kamrup</span>
+        <span>Nagaon</span><span>Udalguri</span><span>Sonitpur</span><span>Kamrup</span>
       </div>
     </div>
   </section>
