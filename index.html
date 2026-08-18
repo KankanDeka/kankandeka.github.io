@@ -189,17 +189,28 @@
   }
   h1 em{font-style:normal; color:var(--cyan);}
   .hero p{font-size:1.12rem; color:var(--paper-dim); max-width:44ch; margin-bottom:38px;}
-  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px;}
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:56px;}
   .btn-primary{
     font-family:var(--display); font-weight:600; font-size:1.02rem;
     background:var(--cyan); color:var(--ink); padding:15px 30px; transition:.2s; border:1px solid var(--cyan);
+    display:inline-flex; align-items:center; justify-content:center;
   }
   .btn-primary:hover{background:transparent; color:var(--cyan);}
   .btn-secondary{
     font-family:var(--display); font-weight:600; font-size:1.02rem;
     border:1px solid var(--panel-line); color:var(--paper); padding:15px 30px; transition:.2s;
+    display:inline-flex; align-items:center; justify-content:center;
   }
   .btn-secondary:hover{border-color:var(--paper);}
+  .btn-google{
+    font-family:var(--display); font-weight:600; font-size:1.02rem;
+    border:1px solid rgba(255, 209, 102, 0.4); color:var(--amber); padding:15px 24px; transition:.2s;
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255, 209, 102, 0.05);
+  }
+  .btn-google:hover{
+    background:var(--amber); color:var(--ink); border-color:var(--amber);
+  }
+  .btn-google svg{fill:currentColor; flex-shrink:0;}
   .hero-tags{display:flex; flex-wrap:wrap; gap:10px;}
   .tag{
     font-family:var(--mono); font-size:0.76rem; color:var(--paper-dim);
@@ -445,6 +456,10 @@
       <div class="hero-ctas">
         <a class="btn-primary" href="#contact">Book Your Event</a>
         <a class="btn-secondary" href="#services">View Services</a>
+        <a class="btn-google" href="https://share.google/H78ZH9YMWfsKRvfER" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Google Business Profile
+        </a>
       </div>
       <div class="hero-tags">
         <span class="tag">Weddings</span>
