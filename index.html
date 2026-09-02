@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="pYeGz5y1RZ3BSdFGe64jwJxCclV0PeMSlZqNJKs_vcA" />
+<meta name="theme-color" content="#08080D">
 <meta name="google-site-verification" content="pYeGz5y1RZ3BSdFGe64jwJxCclV0PeMSlZqNJKs_vcA" />
 <!-- ============================================================ -->
 <!-- EDIT ME: swap placeholder phone/URL/email before publishing  -->
@@ -115,6 +115,7 @@
     --display: 'Rajdhani', sans-serif;
     --body: 'Inter', sans-serif;
     --mono: 'IBM Plex Mono', monospace;
+    --header-h: 72px;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
@@ -124,6 +125,7 @@
     font-family:var(--body);
     line-height:1.6;
     overflow-x:hidden;
+    -webkit-text-size-adjust:100%;
   }
   a{color:inherit; text-decoration:none;}
   img{max-width:100%; display:block;}
@@ -142,8 +144,8 @@
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--panel-line);
   }
-  .nav{display:flex; align-items:center; justify-content:space-between; height:72px;}
-  .brand{font-family:var(--display); font-weight:700; font-size:1.3rem; letter-spacing:0.02em; display:flex; align-items:center; gap:10px;}
+  .nav{display:flex; align-items:center; justify-content:space-between; height:var(--header-h); gap:16px;}
+  .brand{font-family:var(--display); font-weight:700; font-size:1.3rem; letter-spacing:0.02em; display:flex; align-items:center; gap:10px; flex-shrink:0;}
   .brand-mark{width:14px; height:14px; background:var(--cyan); box-shadow:0 0 12px var(--cyan); flex-shrink:0;}
   nav ul{list-style:none; display:flex; gap:32px;}
   nav a{font-size:0.92rem; color:var(--paper-dim); transition:color .2s;}
@@ -151,9 +153,31 @@
   .nav-cta{
     font-family:var(--mono); font-size:0.82rem; padding:9px 18px;
     border:1px solid var(--cyan); color:var(--cyan); transition:.2s;
+    flex-shrink:0; white-space:nowrap;
   }
   .nav-cta:hover{background:var(--cyan); color:var(--ink);}
-  .nav-toggle{display:none;}
+
+  /* Hamburger toggle (hidden on desktop) */
+  .nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    width:40px; height:40px;
+    background:transparent;
+    border:1px solid var(--panel-line);
+    cursor:pointer;
+    padding:0;
+    flex-shrink:0;
+  }
+  .nav-toggle span{
+    display:block; width:18px; height:2px; background:var(--paper);
+    transition:transform .25s, opacity .25s;
+  }
+  .nav-toggle.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav-toggle.active span:nth-child(2){opacity:0;}
+  .nav-toggle.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
   /* ---------- Hero ---------- */
   .hero{
@@ -184,11 +208,11 @@
   }
   .eyebrow::before{content:''; width:26px; height:1px; background:var(--cyan);}
   h1{
-    font-family:var(--display); font-weight:700; font-size:clamp(2.6rem, 6vw, 4.6rem);
-    line-height:1.03; letter-spacing:-0.01em; max-width:14ch; margin-bottom:26px;
+    font-family:var(--display); font-weight:700; font-size:clamp(2.2rem, 7vw, 4.6rem);
+    line-height:1.05; letter-spacing:-0.01em; max-width:14ch; margin-bottom:26px;
   }
   h1 em{font-style:normal; color:var(--cyan);}
-  .hero p{font-size:1.12rem; color:var(--paper-dim); max-width:44ch; margin-bottom:38px;}
+  .hero p{font-size:1.05rem; color:var(--paper-dim); max-width:44ch; margin-bottom:38px;}
   .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; align-items:center; margin-bottom:56px;}
   .btn-primary{
     font-family:var(--display); font-weight:600; font-size:1.02rem;
@@ -229,7 +253,7 @@
   section{padding:100px 0;}
   .section-head{max-width:640px; margin-bottom:56px;}
   .section-eyebrow{font-family:var(--mono); font-size:0.78rem; color:var(--cyan); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;}
-  h2{font-family:var(--display); font-weight:700; font-size:clamp(1.9rem,3.6vw,2.7rem); letter-spacing:-0.01em; margin-bottom:16px;}
+  h2{font-family:var(--display); font-weight:700; font-size:clamp(1.7rem,5vw,2.7rem); letter-spacing:-0.01em; margin-bottom:16px;}
   .section-head p{color:var(--paper-dim); font-size:1.02rem;}
 
   /* ---------- Services: LED cabinet tile grid (signature element) ---------- */
@@ -271,7 +295,8 @@
   .pricing-formula p{color:var(--paper-dim); font-size:0.95rem; margin-bottom:16px;}
   .calc-example{
     background:var(--ink); border:1px dashed var(--panel-line);
-    padding:18px 24px; font-family:var(--mono); font-size:0.88rem; color:var(--paper);
+    padding:18px 24px; font-family:var(--mono); font-size:0.85rem; color:var(--paper);
+    overflow-x:auto;
   }
   .calc-example strong{color:var(--cyan);}
 
@@ -293,6 +318,7 @@
   .pkg-features{list-style:none; margin-bottom:28px;}
   .pkg-features li{font-size:0.88rem; color:var(--paper-dim); padding:6px 0; border-bottom:1px dashed var(--panel-line);}
   .pkg-features li::before{content:'✓ '; color:var(--cyan);}
+  .package-card > a{width:100%;}
 
   /* Add-ons Section */
   .addons-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:20px;}
@@ -387,34 +413,105 @@
   footer p, footer address{font-size:0.9rem; color:var(--paper-dim); font-style:normal;}
   footer ul{list-style:none;}
   footer li{margin-bottom:10px;}
-  footer a{font-size:0.9rem; color:var(--paper-dim); transition:color .2s;}
+  footer a{font-size:0.9rem; color:var(--paper-dim); transition:color .2s; display:inline-block; padding:4px 0;}
   footer a:hover{color:var(--cyan);}
   .footer-bottom{border-top:1px solid var(--panel-line); padding-top:24px; font-family:var(--mono); font-size:0.76rem; color:var(--paper-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;}
 
-  /* ---------- Responsive ---------- */
+  /* ================================================================
+     RESPONSIVE / MOBILE
+     ================================================================ */
   @media (max-width: 860px){
-    nav ul{display:none;}
+    :root{ --header-h: 130px; } /* fallback estimate; JS corrects this to the real height */
+
+    .nav{
+      flex-wrap:wrap;
+      row-gap:12px;
+    }
+    .brand{order:1;}
+    .nav-toggle{display:flex; order:2; margin-left:auto;}
+    /* The <nav> wrapper becomes "invisible" for layout so the <ul> inside
+       lines up as a direct flex child — the ul itself goes position:fixed
+       below, so it's taken out of flow regardless. */
+    nav[aria-label="Primary"]{display:contents;}
+
+    .nav-cta{
+      order:3;
+      flex:0 0 100%;
+      text-align:center;
+      padding:13px 18px;
+      font-size:0.9rem;
+    }
+
+    nav ul{
+      list-style:none;
+      display:flex; flex-direction:column;
+      position:fixed;
+      top:var(--header-h); left:0; right:0;
+      max-height:calc(100vh - var(--header-h));
+      overflow-y:auto;
+      background:rgba(8,8,13,0.98);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--panel-line);
+      padding:8px 24px 20px;
+      gap:0;
+      transform:translateY(-8px);
+      opacity:0;
+      visibility:hidden;
+      pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease, visibility .2s;
+    }
+    nav ul.open{
+      opacity:1; transform:translateY(0);
+      visibility:visible; pointer-events:auto;
+    }
+    nav li{border-bottom:1px solid var(--panel-line);}
+    nav li:last-child{border-bottom:none;}
+    nav a{display:block; padding:16px 4px; font-size:1.02rem;}
+
+    .hero{padding:calc(var(--header-h) + 56px) 0 64px; min-height:auto;}
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+    .btn-primary, .btn-secondary, .btn-google{width:100%;}
+
+    section{padding:64px 0;}
+    .wrap{padding:0 20px;}
+
     .stats-grid{grid-template-columns:repeat(2,1fr);}
     .stat:nth-child(2){border-right:none;}
+    .stat:nth-child(3){border-right:1px solid var(--panel-line);}
+
     .cabinet-grid{grid-template-columns:repeat(2,1fr);}
     .specs-grid{grid-template-columns:repeat(2,1fr);}
     .spec:nth-child(2){border-right:none;}
+
     .package-grid, .addons-grid, .trust-banner{grid-template-columns:1fr;}
     .testimonial-grid{grid-template-columns:1fr;}
     .footer-grid{grid-template-columns:1fr; gap:28px;}
+
     .gallery-grid{grid-template-columns:repeat(2, 1fr);}
-    .gallery-item.wide{
-      grid-column:span 2;
-      aspect-ratio:2/1;
-    }
+    .gallery-item.wide{grid-column:span 2; aspect-ratio:2/1;}
+
+    .cta{padding:48px 24px;}
+    .cta-buttons{flex-direction:column;}
+    .cta-buttons a{width:100%;}
+
+    .footer-bottom{flex-direction:column; align-items:flex-start;}
   }
 
   @media (max-width: 480px){
+    h1{max-width:100%;}
+    .cabinet-grid{grid-template-columns:1fr;}
+    .specs-grid{grid-template-columns:1fr;}
+    .spec{border-right:none; border-bottom:1px solid var(--panel-line);}
+    .spec:last-child{border-bottom:none;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+
     .gallery-grid{grid-template-columns:1fr;}
-    .gallery-item.wide{
-      grid-column:span 1;
-      aspect-ratio:1/1;
-    }
+    .gallery-item.wide{grid-column:span 1; aspect-ratio:1/1;}
+
+    .package-card h3{font-size:1.5rem;}
+    .pkg-price span{font-size:1.7rem;}
+
+    .calc-example{font-size:0.78rem;}
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -429,8 +526,13 @@
 <header>
   <div class="wrap nav">
     <a href="#main" class="brand"><span class="brand-mark" aria-hidden="true"></span>Kankan LED Wall</a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+
     <nav aria-label="Primary">
-      <ul>
+      <ul id="primary-nav">
         <li><a href="#services">Services</a></li>
         <li><a href="#specs">Equipment</a></li>
         <li><a href="#pricing">Pricing</a></li>
@@ -813,11 +915,61 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Keep --header-h accurate to the header's real rendered height
+  // (it grows to two rows on mobile now that the CTA sits under the logo).
+  (function(){
+    var header = document.querySelector('header');
+    if(!header) return;
+    function syncHeaderHeight(){
+      document.documentElement.style.setProperty('--header-h', header.offsetHeight + 'px');
+    }
+    syncHeaderHeight();
+    window.addEventListener('resize', syncHeaderHeight);
+    window.addEventListener('load', syncHeaderHeight);
+  })();
+
+  // Mobile nav toggle
+  (function(){
+    var toggle = document.getElementById('navToggle');
+    var menu = document.getElementById('primary-nav');
+    if(!toggle || !menu) return;
+
+    function closeMenu(){
+      menu.classList.remove('open');
+      toggle.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function(){
+      var isOpen = menu.classList.toggle('open');
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
+    });
+  })();
+
   // Build the ambient pixel-grid background once, lightly, respecting reduced motion
+  // and using a much lighter grid on small screens to save DOM nodes / battery.
   (function(){
     var field = document.getElementById('pixelField');
     if(!field) return;
-    var count = 48 * 20;
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduceMotion) return;
+
+    var isSmall = window.innerWidth < 640;
+    var cols = isSmall ? 16 : 48;
+    var rows = isSmall ? 12 : 20;
+    field.style.gridTemplateColumns = 'repeat(' + cols + ', 1fr)';
+    field.style.gridTemplateRows = 'repeat(' + rows + ', 1fr)';
+
+    var count = cols * rows;
     var frag = document.createDocumentFragment();
     for(var i=0;i<count;i++){
       frag.appendChild(document.createElement('span'));
